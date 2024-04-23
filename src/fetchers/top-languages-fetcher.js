@@ -159,6 +159,8 @@ const fetchTopLanguages = async (
       return result;
     }, {});
 
+  console.log(topLangs);
+
   return topLangs;
 };
 
