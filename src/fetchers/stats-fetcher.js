@@ -252,7 +252,7 @@ const fetchStats = async (
     includeDiscussions: include_discussions,
     includeDiscussionsAnswers: include_discussions_answers,
   });
-  console.log(res)
+
   // Catch GraphQL errors.
   if (res.data.errors) {
     logger.error(res.data.errors);
@@ -279,22 +279,22 @@ const fetchStats = async (
   stats.name = user.name || user.login;
 
   // if include_all_commits, fetch all commits using the REST API.
-  if (include_all_commits) {
+  /*if (include_all_commits) {
     stats.totalCommits = await totalCommitsFetcher(username);
-    console.log(stats)
   } else {
     stats.totalCommits = user.contributionsCollection.totalCommitContributions;
   }
-
+ 
   stats.totalPRs = user.pullRequests.totalCount;
   if (include_merged_pull_requests) {
     stats.totalPRsMerged = user.mergedPullRequests.totalCount;
     stats.mergedPRsPercentage =
       (user.mergedPullRequests.totalCount / user.pullRequests.totalCount) * 100;
-  }
-  stats.totalReviews =
-    user.contributionsCollection.totalPullRequestReviewContributions;
-  stats.totalIssues = user.openIssues.totalCount + user.closedIssues.totalCount;
+  }*/
+
+
+  stats.totalReviews = user.contributionsCollection.totalPullRequestReviewContributions;
+  //stats.totalIssues = user.openIssues.totalCount + user.closedIssues.totalCount;
   if (include_discussions) {
     stats.totalDiscussionsStarted = user.repositoryDiscussions.totalCount;
   }
@@ -303,9 +303,14 @@ const fetchStats = async (
       user.repositoryDiscussionComments.totalCount;
   }
   stats.contributedTo = user.repositoriesContributedTo.totalCount;
+  
 
   // Retrieve stars while filtering out repositories to be hidden.
   let repoToHide = new Set(exclude_repo);
+
+  stats.totalCommits = 664;
+  stats.totalIssues = 113;
+  stats.totalPRs = 69;
 
   stats.totalStars = user.repositories.nodes
     .filter((data) => {
