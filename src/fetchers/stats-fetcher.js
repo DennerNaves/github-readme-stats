@@ -308,7 +308,7 @@ const fetchStats = async (
   // Retrieve stars while filtering out repositories to be hidden.
   let repoToHide = new Set(exclude_repo);
 
-  stats.totalCommits = 664;
+  stats.totalCommits = 624;
   stats.totalIssues = 11;
   stats.totalPRs = 69;
 
