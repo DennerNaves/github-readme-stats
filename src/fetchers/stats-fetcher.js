@@ -252,7 +252,7 @@ const fetchStats = async (
     includeDiscussions: include_discussions,
     includeDiscussionsAnswers: include_discussions_answers,
   });
-
+  console.log(res)
   // Catch GraphQL errors.
   if (res.data.errors) {
     logger.error(res.data.errors);
@@ -281,6 +281,7 @@ const fetchStats = async (
   // if include_all_commits, fetch all commits using the REST API.
   if (include_all_commits) {
     stats.totalCommits = await totalCommitsFetcher(username);
+    console.log(stats)
   } else {
     stats.totalCommits = user.contributionsCollection.totalCommitContributions;
   }
