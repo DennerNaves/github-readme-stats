@@ -221,7 +221,7 @@ const renderStatsCard = (stats, options = {}) => {
     hide_border = false,
     card_width,
     hide_rank = false,
-    include_all_commits = false,
+    include_all_commits = true,
     line_height = 25,
     title_color,
     ring_color,
