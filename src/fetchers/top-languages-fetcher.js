@@ -153,8 +153,11 @@ const fetchTopLanguages = async (
   });
 
   repoNodes = [
-    {name: 'Javascript', size: 45},
-    {name: 'CSS', size: 8}
+    {name: 'JavaScript', size: 53.86, color: '#F0DB4F'},
+    {name: 'HTML', size: 15.3, color: '#E14E1D'},
+    {name: 'TypeScript', size: 14.01, color: '#007ACC'},
+    {name: 'CSS', size: 10.52, color: '#563D7C'},
+    {name: 'PHP', size: 6.31, color: '#563D7C'}
   ]
   const topLangs = Object.keys(repoNodes)
     .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
