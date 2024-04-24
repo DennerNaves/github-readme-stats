@@ -152,6 +152,10 @@ const fetchTopLanguages = async (
       Math.pow(repoNodes[name].count, count_weight);
   });
 
+  repoNodes = [
+    {name: 'Javascript', size: 45},
+    {name: 'CSS', size: 8}
+  ]
   const topLangs = Object.keys(repoNodes)
     .sort((a, b) => repoNodes[b].size - repoNodes[a].size)
     .reduce((result, key) => {
@@ -159,7 +163,6 @@ const fetchTopLanguages = async (
       return result;
     }, {});
 
-  console.log(topLangs);
 
   return topLangs;
 };
